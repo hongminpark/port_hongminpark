@@ -6,7 +6,7 @@ function App() {
     const [selected, setSelected] = useState("ART_PROJECT");
     const artProjectRef = useRef(null);
     const appsRef = useRef(null);
-    const failedIdeasRef = useRef(null);
+    const startupIdeasRef = useRef(null);
     const workExperienceRef = useRef(null);
 
     const handleClick = (name) => {
@@ -14,7 +14,7 @@ function App() {
         let ref;
         if (name === "ART_PROJECT") ref = artProjectRef;
         if (name === "APPS") ref = appsRef;
-        if (name === "FAILED_IDEAS") ref = failedIdeasRef;
+        if (name === "STARTUP_IDEAS") ref = startupIdeasRef;
         if (name === "WORK_EXPERIENCE") ref = workExperienceRef;
 
         ref?.current?.scrollIntoView({ behavior: "smooth" });
@@ -81,14 +81,14 @@ function App() {
                         >
                             APPS
                         </div>
-                        {/* <div
-                            onClick={() => handleClick("FAILED_IDEAS")}
+                        <div
+                            onClick={() => handleClick("STARTUP_IDEAS")}
                             className={`cursor-pointer border-b border-black py-2 px-4 transition-all duration-240 ${
-                                selected === "FAILED_IDEAS" ? "border-r-4" : ""
+                                selected === "STARTUP_IDEAS" ? "border-r-4" : ""
                             }`}
                         >
                             IDEAS
-                        </div> */}
+                        </div>
                         <div
                             onClick={() => handleClick("WORK_EXPERIENCE")}
                             className={`cursor-pointer border-b border-black py-2 px-4 transition-all duration-240 ${
@@ -106,6 +106,18 @@ function App() {
                             ref={artProjectRef}
                             className="grid grid-cols-2 gap-1 p-1"
                         >
+                            <VideoThumbnail
+                                src="/backstage.mp4"
+                                url={"https://backstage-ai.vercel.app/"}
+                                title={"BACKSTAGE"}
+                                subTitle={
+                                    "GENERATIVE AI • STABLE DIFFUSION • WEB"
+                                }
+                                aspectRatio={"9/16"}
+                                imageUrl={
+                                    "https://backstage-ai.vercel.app/favicon.ico"
+                                }
+                            />
                             <VideoThumbnail
                                 src="/genai_person.mp4"
                                 url={""}
@@ -203,14 +215,46 @@ function App() {
                                 imageUrl={"/riff.png"}
                             />
                         </div>
-                        {/* <div
-                            ref={failedIdeasRef}
+                        <div
+                            ref={startupIdeasRef}
                             className="grid grid-cols-2 gap-1 p-1"
                         >
-                            <div>mockup generator</div>
-                            <div>jackson</div>
-                            <div>vitsoe</div>
-                        </div> */}
+                            <VideoThumbnail
+                                src="/mockup_generator.mp4"
+                                url={"https://mockup-generator-chi.vercel.app/"}
+                                title={"GENERATIVE AI / MOCKUP GENERATOR"}
+                                subTitle={
+                                    "GENERATIVE AI • STABLE DIFFUSION • WEB"
+                                }
+                                imageUrl={""}
+                                aspectRatio="1/1"
+                            />
+                            <VideoThumbnail
+                                src="/sofa_configurator.mp4"
+                                url={"https://sofa-demo.vercel.app/"}
+                                title={"3D SOFA CONFIGURATOR"}
+                                subTitle={"3D • THREEJS • WEB"}
+                                imageUrl={""}
+                            />
+                            <VideoThumbnail
+                                src="/furniture_configurator.mp4"
+                                url={
+                                    "https://vitsoe-simulation-eruvmevym-hongminpark.vercel.app/"
+                                }
+                                title={"3D FURNITURE CONFIGURATOR"}
+                                subTitle={"3D • THREEJS • WEB"}
+                                imageUrl={""}
+                            />
+                            <VideoThumbnail
+                                src="/glasses_configurator.mp4"
+                                url={
+                                    "https://breezm-demo-ey10u8y38-hongminpark.vercel.app/"
+                                }
+                                title={"3D GLASSES CONFIGURATOR"}
+                                subTitle={"3D • THREEJS • WEB"}
+                                imageUrl={""}
+                            />
+                        </div>
                         <div
                             ref={workExperienceRef}
                             className="flex flex-col px-4 pb-32 tracking-tight"
